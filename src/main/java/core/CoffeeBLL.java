@@ -1,5 +1,8 @@
 package core;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -9,15 +12,18 @@ import br.ufes.inf.hfilho.isbm.ISBM;
 import br.ufes.inf.hfilho.isbm.lowlevel.ConclusionListener;
 
 public class CoffeeBLL {    
+	
+	
+	
     
-    public List<CoffeeEntity> getISBM(){
+    public List<CoffeeEntity> getISBM(File file){
     	List<CoffeeEntity> list = new ArrayList<CoffeeEntity>();
     	
         ISBM vm = new ISBM();
         
         //File file = new File(this.getClass().getResource("cafe.isbm").getFile());
         
-        vm.start(this.getClass().getResource("cafe.isbm").getFile(), ISBM.RENDER_WEB);       
+        vm.start(file, ISBM.RENDER_WEB);       
         
         //Acesso às conclusões de forma assincrona:
         vm.setConclusionListener(new ConclusionListener() {
@@ -83,8 +89,5 @@ public class CoffeeBLL {
         }
         return  d;
     }
-    
-    
-	
 
 }

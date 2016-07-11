@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
-
+import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -31,7 +31,7 @@ public class Main {
     staticFileLocation("/public");
     
     get("/coffee", "application/json", (request, response) ->{
-    	return new CoffeeBLL().getISBM();
+    	return new CoffeeBLL().getISBM(new File(Main.class.getResource("core/cafe.isbm").getFile()));
     	}, new JsonTransformer());
     
     get("/hello", (req, res) -> "Hello World");
