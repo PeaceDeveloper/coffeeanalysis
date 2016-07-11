@@ -7,14 +7,23 @@
   <version>1.0-SNAPSHOT</version>
   <artifactId>helloworld</artifactId>
   
-  <repositories>
-  <repository>
-    <id>Internal company repository</id>
-    <url>file://${project.basedir}/src/main/resources</url>
-  </repository>
+ <repositories>
+    <!--other repositories if any-->
+    <repository>
+        <id>project.local</id>
+        <name>project</name>
+        <url>file:${project.basedir}/repo</url>
+    </repository>
 </repositories>
+
   
   <dependencies>
+  
+  <dependency>
+    <groupId>org.ufes.isbm</groupId>
+    <artifactId>isbm</artifactId>
+    <version>1.0</version>
+</dependency>
     <dependency>
       <groupId>com.sparkjava</groupId>
       <artifactId>spark-core</artifactId>
@@ -40,11 +49,7 @@
     	<artifactId>gson</artifactId>
     	<version>2.7</version>
     </dependency>
-    <dependency>
-    	<groupId>org.ufes.isbm</groupId>
-    	<artifactId>isbm</artifactId>
-    	<version>1.0.0</version>
-    </dependency>
+    
   </dependencies>
   <build>
     <plugins>
