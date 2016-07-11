@@ -46,7 +46,7 @@
     	<groupId>com.ufes.isbm</groupId>
     	<artifactId>isbm</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
-    	<scope>runtime</scope>
+    	<scope>system</scope>
     </dependency>
   </dependencies>
   <build>
