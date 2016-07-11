@@ -14,7 +14,7 @@ public class CoffeeBLL {
     	
         ISBM vm = new ISBM();
         
-        File file = new File(this.getClass().getResource( "./cafe.isbm").getFile());
+        File file = new File(this.getClass().getResource("/cafe.isbm").getFile());
         
         vm.start(file, ISBM.RENDER_WEB);       
         
