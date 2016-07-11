@@ -10,7 +10,7 @@
   <repositories>
   <repository>
     <id>Internal company repository</id>
-    <url>file://${basedir}/src/main/resources</url>
+    <url>file://${basedir}/src/main/resources/ISBM.jar</url>
   </repository>
 </repositories>
   
