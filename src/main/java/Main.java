@@ -1,4 +1,4 @@
-package core;
+
 import java.sql.*;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ import static spark.Spark.get;
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
 import common.JsonTransformer;
+import core.CoffeeBLL;
 
 public class Main {
 
