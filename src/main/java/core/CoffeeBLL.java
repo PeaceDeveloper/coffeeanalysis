@@ -15,9 +15,9 @@ public class CoffeeBLL {
     	
         ISBM vm = new ISBM();
         
-        File file = new File(this.getClass().getResource("cafe.isbm").getFile());
+        //File file = new File(this.getClass().getResource("cafe.isbm").getFile());
         
-        vm.start(file, ISBM.RENDER_WEB);       
+        vm.start(this.getClass().getResource("cafe.isbm").getFile(), ISBM.RENDER_WEB);       
         
         //Acesso às conclusões de forma assincrona:
         vm.setConclusionListener(new ConclusionListener() {
@@ -83,6 +83,8 @@ public class CoffeeBLL {
         }
         return  d;
     }
+    
+    
 	
 
 }
