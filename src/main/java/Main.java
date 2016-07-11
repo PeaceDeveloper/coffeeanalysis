@@ -28,44 +28,44 @@ public class Main {
 	
     staticFileLocation("/public");
 
-    get("/hello", (req, res) -> "Hello World");
+    //get("/hello", (req, res) -> "Hello World");
     
-    get("/coffee", "application/json", (request, response) ->{
+    get("/", "application/json", (request, response) ->{
     	return new CoffeeBLL().getISBM();
     	}, new JsonTransformer());
 
-    get("/", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "Hello World!");
+    //get("/", (request, response) -> {
+            //Map<String, Object> attributes = new HashMap<>();
+            //attributes.put("message", "Hello World!");
 
-            return new ModelAndView(attributes, "index.ftl");
-        }, new FreeMarkerEngine());
+            //return new ModelAndView(attributes, "index.ftl");
+        //}, new FreeMarkerEngine());
 
-    get("/db", (req, res) -> {
-      Connection connection = null;
-      Map<String, Object> attributes = new HashMap<>();
-      try {
-        connection = DatabaseUrl.extract().getConnection();
+    //get("/db", (req, res) -> {
+      //Connection connection = null;
+      //Map<String, Object> attributes = new HashMap<>();
+      //try {
+        //connection = DatabaseUrl.extract().getConnection();
 
-        Statement stmt = connection.createStatement();
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+        //Statement stmt = connection.createStatement();
+        //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+        //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+        //ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
 
-        ArrayList<String> output = new ArrayList<String>();
-        while (rs.next()) {
-          output.add( "Read from DB: " + rs.getTimestamp("tick"));
-        }
+        //ArrayList<String> output = new ArrayList<String>();
+        //while (rs.next()) {
+          //output.add( "Read from DB: " + rs.getTimestamp("tick"));
+        //}
 
-        attributes.put("results", output);
-        return new ModelAndView(attributes, "db.ftl");
-      } catch (Exception e) {
-        attributes.put("message", "There was an error: " + e);
-        return new ModelAndView(attributes, "error.ftl");
-      } finally {
-        if (connection != null) try{connection.close();} catch(SQLException e){}
-      }
-    }, new FreeMarkerEngine());
+        //attributes.put("results", output);
+        //return new ModelAndView(attributes, "db.ftl");
+      //} catch (Exception e) {
+        //attributes.put("message", "There was an error: " + e);
+        //return new ModelAndView(attributes, "error.ftl");
+      //} finally {
+        //if (connection != null) try{connection.close();} catch(SQLException e){}
+      //}
+    //}, new FreeMarkerEngine());
 
   }
 
