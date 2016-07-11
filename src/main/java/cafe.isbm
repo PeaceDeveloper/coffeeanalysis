@@ -1,0 +1,17 @@
+Connect HttpService Cotacao http://www.cccv.org.br/cotacao/ 0
+	RegexEntity="<tr class='(impar|par) linha'>[\w\W]+?<\/tr>",0
+	Dia="<td.+?>(.*?)<\/td>",1
+	ArabicaTipo6="<td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td>",1
+	ArabicaTipo7="<td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td>",2
+	ArabicaTipo8="<td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td>",3
+	ConilonTipo7="<td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td>",4
+	ConilonTipo8="<td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td><td.+?'>(.*?)<\/td>",5
+
+PreDatasetLoop(Cotacao)
+	Vars.id = 0    
+DatasetLoop(Cotacao)
+	SetSection Vars.id, Entity.ArabicaTipo6 + ";" + Entity.ArabicaTipo7 + ";" + Entity.ArabicaTipo8 + ";" + Entity.ConilonTipo7 + ";" + Entity.ConilonTipo8
+	Conclude Vars.id, Entity.Dia + ";" + Entity.ArabicaTipo6 + ";" + Entity.ArabicaTipo7 + ";" + Entity.ArabicaTipo8 + ";" + Entity.ConilonTipo7 + ";" + Entity.ConilonTipo8
+	Vars.id = Vars.id + 1
+
+

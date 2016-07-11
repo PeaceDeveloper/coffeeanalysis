@@ -13,14 +13,26 @@ import static spark.Spark.get;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
+import common.JsonTransformer;
+
 public class Main {
 
   public static void main(String[] args) {
 
-    port(Integer.valueOf(System.getenv("PORT")));
+	String porta = System.getenv("PORT");
+	
+	if (porta != null)	  
+		port(Integer.valueOf(porta));
+	else
+		port(8080);
+	
     staticFileLocation("/public");
 
     get("/hello", (req, res) -> "Hello World");
+    
+    get("/coffee", "application/json", (request, response) ->{
+    	return new CoffeeBLL().getISBM();
+    	}, new JsonTransformer());
 
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
