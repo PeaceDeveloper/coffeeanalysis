@@ -27,12 +27,12 @@ public class Main {
 		port(8080);
 	
     staticFileLocation("/public");
-
-    //get("/hello", (req, res) -> "Hello World");
     
-    get("/", "application/json", (request, response) ->{
+    get("/coffee", "application/json", (request, response) ->{
     	return new CoffeeBLL().getISBM();
     	}, new JsonTransformer());
+    
+    get("/hello", (req, res) -> "Hello World");
 
     //get("/", (request, response) -> {
             //Map<String, Object> attributes = new HashMap<>();
