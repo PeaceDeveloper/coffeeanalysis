@@ -84,7 +84,7 @@ public class CoffeeBLL {
             linha = br.readLine();
         }
        
-        cotacoes.put("cotação",dias);
+        cotacoes.put("cotacao",dias);
         
         return cotacoes.toString();
     }
