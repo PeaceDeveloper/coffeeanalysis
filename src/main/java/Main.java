@@ -31,7 +31,7 @@ public class Main {
     staticFileLocation("/public");
     
     get("/coffee", "application/json", (request, response) ->{
-    	return new CoffeeBLL().getISBM(new File(Main.class.getResource("core/cafe.isbm").getFile()));
+    	return new CoffeeBLL().getISBM();
     	}, new JsonTransformer());
     
     get("/hello", (req, res) -> "Hello World");
