@@ -34,7 +34,12 @@ public class Main {
     	return new CoffeeBLL().getISBM();
     	}, new JsonTransformer());
     
-    get("/hello", (req, res) -> "Hello World");
+  get("/", (req, res) ->  new CoffeeBLL().getISBM());
+    
+    
+    
+    
+    //get("/hello", (req, res) -> "Hello World");
 
     //get("/", (request, response) -> {
             //Map<String, Object> attributes = new HashMap<>();
