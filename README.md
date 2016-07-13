@@ -1,6 +1,6 @@
 # CoffeeAnalysis
 
-Url: https://evening-sierra-56301.herokuapp.com/
+This service is running at https://evening-sierra-56301.herokuapp.com/
 
 ## Running Locally
 
