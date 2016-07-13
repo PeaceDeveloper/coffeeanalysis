@@ -1,10 +1,4 @@
-# java-getting-started
-
-A barebones Java app, which can easily be deployed to Heroku.
-
-This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+# CoffeeAnalysis
 
 ## Running Locally
 
@@ -17,7 +11,7 @@ $ mvn install
 $ heroku local:start
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:8080](http://localhost:8080/).
 
 If you're going to use a database, ensure you have a local `.env` file that reads something like this:
 
